@@ -1,19 +1,19 @@
-import { AptosClientRequest, AptosClientResponse } from "./types";
+import { MovementClientRequest, MovementClientResponse } from "./types";
 
 /**
  * Used for JSON responses
  *
  * @param options
  */
-export default async function aptosClient<Res>(
-  options: AptosClientRequest,
-): Promise<AptosClientResponse<Res>> {
+export default async function movementClient<Res>(
+  options: MovementClientRequest,
+): Promise<MovementClientResponse<Res>> {
   return jsonRequest<Res>(options);
 }
 
 export async function jsonRequest<Res>(
-  options: AptosClientRequest,
-): Promise<AptosClientResponse<Res>> {
+  options: MovementClientRequest,
+): Promise<MovementClientResponse<Res>> {
   const { requestUrl, requestConfig } = buildRequest(options);
 
   const res = await fetch(requestUrl, requestConfig);
@@ -35,8 +35,8 @@ export async function jsonRequest<Res>(
  * @param options
  */
 export async function bcsRequest(
-  options: AptosClientRequest,
-): Promise<AptosClientResponse<ArrayBuffer>> {
+  options: MovementClientRequest,
+): Promise<MovementClientResponse<ArrayBuffer>> {
   const { requestUrl, requestConfig } = buildRequest(options);
 
   const res = await fetch(requestUrl, requestConfig);
@@ -51,7 +51,7 @@ export async function bcsRequest(
   };
 }
 
-function buildRequest(options: AptosClientRequest) {
+function buildRequest(options: MovementClientRequest) {
   const headers = new Headers();
   Object.entries(options?.headers ?? {}).forEach(([key, value]) => {
     headers.append(key, String(value));

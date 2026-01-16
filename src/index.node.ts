@@ -5,7 +5,7 @@ import got, {
   Response,
 } from "got";
 import { CookieJar } from "./cookieJar";
-import { AptosClientRequest, AptosClientResponse } from "./types";
+import { MovementClientRequest, MovementClientResponse } from "./types";
 
 const cookieJar = new CookieJar();
 
@@ -13,15 +13,15 @@ const cookieJar = new CookieJar();
  * Used for JSON responses
  * @param requestOptions
  */
-export default async function aptosClient<Res>(
-  requestOptions: AptosClientRequest,
-): Promise<AptosClientResponse<Res>> {
+export default async function movementClient<Res>(
+  requestOptions: MovementClientRequest,
+): Promise<MovementClientResponse<Res>> {
   return jsonRequest<Res>(requestOptions);
 }
 
 export async function jsonRequest<Res>(
-  requestOptions: AptosClientRequest,
-): Promise<AptosClientResponse<Res>> {
+  requestOptions: MovementClientRequest,
+): Promise<MovementClientResponse<Res>> {
   const { params, method, url, headers, body } = requestOptions;
 
   const request: OptionsOfJSONResponseBody = {
@@ -84,8 +84,8 @@ export async function jsonRequest<Res>(
  * @param requestOptions
  */
 export async function bcsRequest(
-  requestOptions: AptosClientRequest,
-): Promise<AptosClientResponse<Buffer>> {
+  requestOptions: MovementClientRequest,
+): Promise<MovementClientResponse<Buffer>> {
   const { params, method, url, headers, body } = requestOptions;
 
   const request: OptionsOfBufferResponseBody = {
@@ -149,7 +149,7 @@ export async function bcsRequest(
   throw new Error(`Unsupported method: ${method}`);
 }
 
-function parseResponse<Res>(response: Response<Res>): AptosClientResponse<Res> {
+function parseResponse<Res>(response: Response<Res>): MovementClientResponse<Res> {
   return {
     status: response.statusCode,
     statusText: response.statusMessage || "",

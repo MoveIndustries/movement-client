@@ -1,6 +1,6 @@
 {
-  "name": "@aptos-labs/aptos-client",
-  "description": "Client package for accessing the Aptos network API.",
+  "name": "@moveindustries/movement-client",
+  "description": "Client package for accessing the Movement network API.",
   "packageManager": "pnpm@10.10.0",
   "license": "Apache-2.0",
   "engines": {
@@ -40,17 +40,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/aptos-labs/aptos-client.git"
+    "url": "https://github.com/moveindustries/movement-client.git"
   },
-  "homepage": "https://github.com/aptos-labs/aptos-client",
+  "homepage": "https://github.com/moveindustries/movement-client",
   "bugs": {
-    "url": "https://github.com/aptos-labs/aptos-client/issues"
+    "url": "https://github.com/moveindustries/movement-client/issues"
   },
-  "author": "aptoslabs.com",
+  "author": "Move Industries",
   "keywords": [
-    "Aptos",
-    "Aptos Labs",
-    "Aptos SDK"
+    "Movement",
+    "Movement Labs",
+    "Movement SDK"
   ],
   "peerDependencies": {
     "got": "^11.8.6"
